@@ -1,6 +1,6 @@
 # OctoPrint_Webhooks
 
-Make API calls based on Octoprint events.
+Make API calls triggered by Octoprint events.
 
 ## Setup
 
@@ -11,3 +11,4 @@ via this URL:
 
 ## Configuration
 
+coming soon
