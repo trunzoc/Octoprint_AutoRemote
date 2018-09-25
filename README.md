@@ -7,7 +7,7 @@ Make API calls based on Octoprint events.
 Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
 via this URL:
 
-    put url here
+    https://github.com/trunzoc/Octoprint_Webhooks/archive/master.zip
 
 ## Configuration
 
