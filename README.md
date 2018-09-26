@@ -1,8 +1,6 @@
-# OctoPrint_Webhooks
+# OctoPrint_AutoRemote
 
-Make API calls triggered by Octoprint events.
-
-This is the first iteration of the plugin.  I am going simple and having a single place to store a master URL
+A simple plugin to send message to the Android app [AutoRemote](https://play.google.com/store/apps/details?id=com.joaomgcd.autoremote) for use in [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm) by JoaoMGCD
 
 ## Setup
 
