@@ -29,25 +29,27 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
 
     def get_settings_defaults(self):
         return dict(autoremotekey="",
-                    events=dict(
-						PrintStarted=False
-						,PrintFailed=False
-						,PrintCancelled=False
-						,PrintPaused=False
-						,PrintResumed=False
-						,PrintDone=False
-						,Progress=False
-						,MovieRendering=False
-						,MovieDone=False
-						,MovieFailed=False
-						,Error=False
-						,Startup=False
-						,Shutdown=False
-						,Connecting=False
-						,Connected=False
-						,Disconnecting=False
-						,Disconnected=False
-						,ClientOpened=False)
+                    events=dict(PrintStarted=False
+				,PrintFailed=False
+				,PrintCancelling=False
+				,PrintCancelled=False
+				,PrintPaused=False
+				,PrintResumed=False
+				,PrintDone=False
+				,Progress=False
+				,MovieRendering=False
+				,MovieDone=False
+				,MovieFailed=False
+				,Error=False
+				,Startup=False
+				,Shutdown=False
+				,Connecting=False
+				,Connected=False
+				,Disconnecting=False
+				,Disconnected=False
+				,ClientOpened=False
+				,ClientClosed=False
+			       )
                     )
                 
             
