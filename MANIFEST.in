@@ -1,2 +1,2 @@
 include README.md
-recursive-include octoprint_Autoremote *
+recursive-include octoprint_AutoRemote *
