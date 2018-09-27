@@ -12,25 +12,11 @@
         </div>
     </div>
     <div><hr></div>
-    {% set printerevents = ["Connecting"
-		,"Connected"
-		,"Disconnecting"
-		,"Disconnected"
-		,"Error"]
-    set printingevents = ["PrintStarted"
-		,"PrintFailed"
-		,"PrintCancelling"
-		,"PrintCancelled"
-		,"PrintPaused"
-		,"PrintResumed"
-		,"PrintDone"]
-    set timelapseevents = ["MovieRendering"
-		,"MovieDone"
-		,"MovieFailed"]
-    set serverevents = ["Startup"
-		,"Shutdown"
-		,"ClientOpened"
-		,"ClientClosed"] %}
+    {% printerevents = ["Connecting","Connected","Disconnecting","Disconnected","Error"]
+    printingevents = ["PrintStarted","PrintFailed","PrintCancelling","PrintCancelled","PrintPaused","PrintResumed","PrintDone"]
+    timelapseevents = ["MovieRendering","MovieDone","MovieFailed"]
+    serverevents = ["Startup","Shutdown","ClientOpened","ClientClosed"] 
+    %}
     
     <h2>Printing Events</h2>
 HI
