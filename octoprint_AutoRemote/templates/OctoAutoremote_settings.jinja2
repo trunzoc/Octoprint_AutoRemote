@@ -38,41 +38,41 @@
     %}
     
     <h2>Printing Events</h2>
-    {% for event in printingevents %}
+    {% for printingevent in printingevents %}
     <div class="octoautoremote_config_group">
-        <div class="span3">{{event}}</div>
+        <div class="span3">{{printingevent}}</div>
         <div class="span1 control-group" title="Enable or disable this notification">
-          <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{ event }}">
+          <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{printingevent}}">
         </div>
     </div>
     {% endfor %}
 
     <h2>Printer Events</h2>
-    {% for event in printerevents %}
+    {% for printerevent in printerevents %}
     <div class="octoautoremote_config_group">
-        <div class="span3">{{event}}</div>
+        <div class="span3">{{printerevent}}</div>
         <div class="span1 control-group" title="Enable or disable this notification">
-          <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{ event }}">
+          <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{printerevent}}">
         </div>
     </div>
     {% endfor %}
 
     <h2>Server Events</h2>
-    {% for event in serverevents %}
+    {% for serverevent in serverevents %}
     <div class="octoautoremote_config_group">
-        <div class="span3">{{event}}</div>
+        <div class="span3">{{serverevent}}</div>
         <div class="span1 control-group" title="Enable or disable this notification">
-          <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{ event }}">
+          <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{serverevent}}">
         </div>
     </div>
     {% endfor %}
 
     <h2>TimeLapse Events</h2>
-    {% for event in timelapseevents %}
+    {% for timelapseevent in timelapseevents %}
     <div class="octoautoremote_config_group">
-        <div class="span3">{{event}}</div>
+        <div class="span3">{{timelapseevent}}</div>
         <div class="span1 control-group" title="Enable or disable this notification">
-          <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{ event }}">
+          <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{timelapseevent}}">
         </div>
     </div>
     {% endfor %}
