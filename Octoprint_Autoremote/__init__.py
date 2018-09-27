@@ -36,7 +36,6 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
 				,PrintPaused=False
 				,PrintResumed=False
 				,PrintDone=False
-				,Progress=False
 				,MovieRendering=False
 				,MovieDone=False
 				,MovieFailed=False
@@ -67,18 +66,21 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
         autoremotekey = self._settings.get(['autoremotekey'])
 #        self._logger.debug("on_event: autoremotekey: %s" % autoremotekey)
         if event in events and events[event]:
-            v1 = v2 = v3 = ""
-            if 'file' in payload:
-                v1 = payload["name"]
-            if 'time' in payload:
-                v2 = str(payload["time"])
-            if 'remoteAddress' in payload:
-                v3 = payload["remoteAddress"]
-            elif 'position' in payload:
-                v3 = payload["position"]
-            elif 'movie_basename' in payload:
-                v3 = payload["movie_basename"]
-            self._send_AutoRemote(event, autoremotekey, v1, v2, v3)
+            message = '|'.join(payload)
+	
+            #if 'remoteAddress' in payload:
+            #    message += "RemoteAddress:" + payload["remoteAddress"]
+            #if 'port' in payload:
+            #    message += "Port:" + payload["Port"]
+            #if 'file' in payload:
+            #    message += "name:" + payload["name"]
+            #if 'time' in payload:
+            #    v2 = str(payload["time"])
+            #if 'position' in payload:
+            #    v3 = payload["position"]
+            #if 'movie_basename' in payload:
+            #    v3 = payload["movie_basename"]
+            self._send_AutoRemote(event, autoremotekey, message)
         else:
             self._logger.info("Event skipped: %s" % event)
           
@@ -93,10 +95,9 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
 
 
 MESSAGE_HERE
-    def _send_AutoRemote(self, trigger, autoremotekey, value1=None, value2=None, value3=None):
+    def _send_AutoRemote(self, trigger, autoremotekey, message=None):
         import requests
-        payload = "value1:" + value1 + ",value2:" + value2 + ",value3:" + value3
-         url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=" + trigger + "=:=" + payload
+        url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=" + trigger + "=:=" + message
         res = requests.post(url)
         self._logger.info("URL: %s" % url)
         self._logger.info("Trigger: %s Response: %s" % (trigger, res.text))
