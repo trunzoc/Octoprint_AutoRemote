@@ -69,20 +69,42 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
         autoremotekey = self._settings.get(['autoremotekey'])
 #        self._logger.debug("on_event: autoremotekey: %s" % autoremotekey)
         if event in events and events[event]:
-            message = '|'.join(payload)
+            message = ""
 	
-            #if 'remoteAddress' in payload:
-            #    message += "RemoteAddress:" + payload["remoteAddress"]
-            #if 'port' in payload:
-            #    message += "Port:" + payload["Port"]
-            #if 'file' in payload:
-            #    message += "name:" + payload["name"]
-            #if 'time' in payload:
-            #    v2 = str(payload["time"])
-            #if 'position' in payload:
-            #    v3 = payload["position"]
-            #if 'movie_basename' in payload:
-            #    v3 = payload["movie_basename"]
+            if 'remoteAddress' in payload:
+                message += ",RemoteAddress:" + payload["remoteAddress"]
+            if 'port' in payload:
+                message += ",Port:" + payload["Port"]
+            if 'baudrate' in payload:
+                message += ",baudrate:" + payload["baudrate"]
+            if 'error' in payload:
+                message += ",error:" + payload["error"]
+            if 'file' in payload:
+                message += ",file:" + payload["file"]
+            if 'filename' in payload:
+                message += ",filename:" + payload["filename"]
+            if 'name' in payload:
+                message += ",name:" + payload["name"]
+            if 'path' in payload:
+                message += ",path:" + payload["path"]
+            if 'origin' in payload:
+                message += ",origin:" + payload["origin"]
+            if 'time' in payload:
+                message += ",time:" +  str(payload["time"])
+            if 'firmwareError' in payload:
+                message += ",firmwareError:" +  str(payload["firmwareError"])
+            if 'position' in payload:
+                message += ",position:" +  payload["position"]
+            if 'gcode' in payload:
+                message += ",gcode:" +  payload["gcode"]
+            if 'movie' in payload:
+                message += ",movie:" +  payload["movie"]
+            if 'movie_basename' in payload:
+                message += ",movie_basename:" +  payload["movie_basename"]
+            if 'returncode' in payload:
+                message += ",returncode:" +  payload["returncode"]
+            if 'reason' in payload:
+                message += ",reason:" +  payload["reason"]
             self._send_AutoRemote(event, autoremotekey, message)
         else:
             self._logger.info("Event skipped: %s" % event)
