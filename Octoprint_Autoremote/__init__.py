@@ -11,7 +11,6 @@ import os
 class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
                         octoprint.plugin.TemplatePlugin,
                         octoprint.plugin.SettingsPlugin,
-                        octoprint.plugin.RestartNeedingPlugin,
                         octopfrint.plugin.EventHandlerPlugin):
 
     def on_settings_save(self, data):
