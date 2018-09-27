@@ -1,4 +1,4 @@
-	# coding=utf-8
+# coding=utf-8
 from __future__ import absolute_import
 
 import octoprint.plugin
@@ -94,8 +94,8 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
 MESSAGE_HERE
     def _send_AutoRemote(self, trigger, autoremotekey, value1=None, value2=None, value3=None):
         import requests
-        payload = { "value1" : value1, "value2": value2, "value3": value3 }
-        url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=" + trigger + "=:=" + payload
+        payload = {"event" : trigger, "value1" : value1, "value2": value2, "value3": value3 }
+        url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=OctoRemote=:=" + payload
         res = requests.post(url)
         self._logger.info("URL: %s" % url)
         self._logger.info("Trigger: %s Response: %s" % (trigger, res.text))
@@ -120,7 +120,7 @@ MESSAGE_HERE
 ######
                         
 __plugin_name__ = "OctoRemote"
-__plugin_implementation__ = OctoRemotePlugin()
+__plugin_implementation__ = OctoPrint_Autoremote()
 
 
 global __plugin_hooks__
