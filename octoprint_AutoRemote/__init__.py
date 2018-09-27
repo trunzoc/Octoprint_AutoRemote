@@ -61,6 +61,10 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
     def get_settings_restricted_paths(self):
         # only used in OctoPrint versions > 1.2.16
         return dict(admin=[["autoremotekey"]])
+    def get_assets(self):
+        return dict(
+            css=["css/OctoAutoremote.css"]
+        )
 
 ######
 
