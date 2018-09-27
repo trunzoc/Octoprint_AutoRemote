@@ -76,10 +76,10 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                 self._logger.debug("forming_Message: remoteAddress: %s" % payload["remoteAddress"])
             if 'port' in payload:
                 message += ",port:" + payload["port"]
-                self._logger.debug("forming_Message: port: %s" % payload["port"])
+                self._logger.debug("forming_Message: port: %s" % str(payload["port"]))
             if 'baudrate' in payload:
                 message += ",baudrate:" + payload["baudrate"]
-                self._logger.debug("forming_Message: baudrate: %s" % payload["baudrate"])
+                self._logger.debug("forming_Message: baudrate: %s" % str(payload["baudrate"]))
             if 'error' in payload:
                 message += ",error:" + payload["error"]
                 self._logger.debug("forming_Message: error: %s" % payload["error"])
@@ -100,7 +100,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                 self._logger.debug("forming_Message: origin: %s" % payload["origin"])
             if 'time' in payload:
                 message += ",time:" +  str(payload["time"])
-                self._logger.debug("forming_Message: time: %s" % payload["time"])
+                self._logger.debug("forming_Message: time: %s" % str(payload["time"]))
             if 'firmwareError' in payload:
                 message += ",firmwareError:" +  str(payload["firmwareError"])
                 self._logger.debug("forming_Message: firmwareError: %s" % payload["firmwareError"])
