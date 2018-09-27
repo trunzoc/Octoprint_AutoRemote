@@ -11,18 +11,17 @@
     </div>
     <div><hr></div>
     <div class="row-fluid">
-        <div class="span3"><h4>Notification</h4></div>
-        <div class="span3"><h4>Trigger</h4></div>
+        <div class="span3"><h4>Event</h4></div>
         <div class="span1"><h4>Enable</h4></div>
     </div>
 
     {% set events = ["PrintStarted"
 		,"PrintFailed"
+		,"PrintCancelling"
 		,"PrintCancelled"
 		,"PrintPaused"
 		,"PrintResumed"
 		,"PrintDone"
-		,"Progress"
 		,"MovieRendering"
 		,"MovieDone"
 		,"MovieFailed"
@@ -33,12 +32,12 @@
 		,"Connected"
 		,"Disconnecting"
 		,"Disconnected"
-		,"ClientOpened"] %}
+		,"ClientOpened"
+		,"ClientClosed"] %}
     {% for event in events %}
 
     <div class="row-fluid">
         <div class="span3">{{event}}</div>
-        <div class="span3">op-{{event}}</div>
         <div class="span1 control-group" title="Enable or disable this notification">
           <input type="checkbox" data-bind="checked: settings.plugins.OctoRemote.events.{{ event }}">
         </div>
