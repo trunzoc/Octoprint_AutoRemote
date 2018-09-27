@@ -96,8 +96,6 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
 #            elapsed_time = octoprint.util.get_formatted_timedelta(datetime.timedelta(seconds=elapsed_time_in_seconds))
 #            self._send_AutoRemote("PrintDone", file, elapsed_time)
 
-
-MESSAGE_HERE
     def _send_AutoRemote(self, trigger, autoremotekey, message="notext"):
         import requests
         url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=" + trigger + "=:=" + message
