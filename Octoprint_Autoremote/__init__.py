@@ -7,6 +7,9 @@ from octoprint.events import Events
 
 import os
 
+#TODO LIST
+#Add progress for % or Layer and textbox for value
+#Add URL field for each trigger to make it a general webhook plugin instead of just AutoRemote
 
 class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
                         octoprint.plugin.TemplatePlugin,
@@ -95,7 +98,7 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
 
 
 MESSAGE_HERE
-    def _send_AutoRemote(self, trigger, autoremotekey, message=None):
+    def _send_AutoRemote(self, trigger, autoremotekey, message="notext"):
         import requests
         url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=" + trigger + "=:=" + message
         res = requests.post(url)
