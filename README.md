@@ -1,4 +1,4 @@
-# OctoPrint_AutoRemote
+# octoprint_AutoRemote
 
 A simple plugin to send message to the Android app [AutoRemote](https://play.google.com/store/apps/details?id=com.joaomgcd.autoremote) for use in [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm) by JoaoMGCD
 
