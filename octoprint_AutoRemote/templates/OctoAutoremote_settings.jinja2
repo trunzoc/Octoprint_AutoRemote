@@ -11,6 +11,7 @@
             </div>
         </div>
     </div>
+
     <div><hr></div>
     {% set printerevents = ["Connecting","Connected","Disconnecting","Disconnected","Error"] %}
     {% set printingevents = ["PrintStarted","PrintFailed","PrintCancelling","PrintCancelled","PrintPaused","PrintResumed","PrintDone"] %}
@@ -29,10 +30,14 @@
             <div class="span1 control-group" title="Enable or disable this notification">
               <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{printingevent}}">
 	    </div>
+            <div class="span1 control-group" title="Enable or disable this notification">
+              <input type="text" class="input-block-level" data-bind="value: settings.plugins.OctoAutoremote.autoremotekey.events.{{printingevent}}.url">
+	    </div>
         </div>
     {% endfor %}
     </div>
 
+    <div><hr></div>
     <div class="octoautoremote_config_group">
         <h2>Printer Events</h2>
         <div class="row-fluid">
@@ -49,6 +54,7 @@
     {% endfor %}
     </div>
 
+    <div><hr></div>
     <div class="octoautoremote_config_group">
         <h2>Server Events</h2>
         <div class="row-fluid">
@@ -65,6 +71,7 @@
     {% endfor %}
     </div>
 
+    <div><hr></div>
     <div class="octoautoremote_config_group">
         <h2>TimeLapse Events</h2>
         <div class="row-fluid">
