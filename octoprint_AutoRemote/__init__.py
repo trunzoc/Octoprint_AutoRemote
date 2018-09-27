@@ -75,7 +75,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         if event in events and events[event]:
             message = ""
 	
-            if len(payload) = 0
+            if not payload:
                 payload.append["no_payload"]
 		
             if 'remoteAddress' in payload:
