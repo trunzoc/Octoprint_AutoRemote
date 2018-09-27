@@ -75,7 +75,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                 message += ",RemoteAddress:" + payload["remoteAddress"]
                 self._logger.debug("forming_Message: remoteAddress: %s" % payload["remoteAddress"])
             if 'port' in payload:
-                message += ",Port:" + payload["Port"]
+                message += ",port:" + payload["port"]
                 self._logger.debug("forming_Message: port: %s" % payload["port"])
             if 'baudrate' in payload:
                 message += ",baudrate:" + payload["baudrate"]
