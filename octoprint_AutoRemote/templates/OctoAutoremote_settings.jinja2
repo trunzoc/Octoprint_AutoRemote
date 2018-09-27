@@ -28,7 +28,7 @@
         <div class="row-fluid">
             <div class="span3">{{event}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
-              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}">
+              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.enabled">
 	    </div>
              <div class="span8 control-group" title="URL">
               <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.url">
@@ -48,7 +48,10 @@
         <div class="row-fluid">
             <div class="span3">{{event}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
-              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}">
+              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.enabled">
+	    </div>
+             <div class="span8 control-group" title="URL">
+              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.url">
 	    </div>
         </div>
     {% endfor %}
@@ -65,7 +68,10 @@
         <div class="row-fluid">
             <div class="span3">{{event}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
-              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}">
+              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.enabled">
+	    </div>
+             <div class="span8 control-group" title="URL">
+              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.url">
 	    </div>
         </div>
     {% endfor %}
@@ -82,7 +88,10 @@
         <div class="row-fluid">
             <div class="span3">{{event}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
-              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}">
+              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.enabled">
+	    </div>
+             <div class="span8 control-group" title="URL">
+              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.url">
 	    </div>
         </div>
     {% endfor %}
