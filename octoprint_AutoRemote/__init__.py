@@ -60,7 +60,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 
     def get_assets(self):
         return dict(
-            css=["css/OctoAutoremote.css"]
+            css=["css/octoautoremote.css"]
         )
 
     def get_settings_restricted_paths(self):
