@@ -75,10 +75,10 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                 message += ",RemoteAddress:" + payload["remoteAddress"]
                 self._logger.debug("forming_Message: remoteAddress: %s" % payload["remoteAddress"])
             if 'port' in payload:
-                message += ",port:" + payload["port"]
+                message += ",port:" + str(payload["port"])
                 self._logger.debug("forming_Message: port: %s" % str(payload["port"]))
             if 'baudrate' in payload:
-                message += ",baudrate:" + payload["baudrate"]
+                message += ",baudrate:" + str(payload["baudrate"])
                 self._logger.debug("forming_Message: baudrate: %s" % str(payload["baudrate"]))
             if 'error' in payload:
                 message += ",error:" + payload["error"]
