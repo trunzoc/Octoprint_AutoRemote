@@ -1,4 +1,4 @@
-<h3>{{ _('OctoRemote') }}</h3>
+<h3>{{ _('OctoAutoremote') }}</h3>
 <p>See <a href="https://joaoapps.com/autoremote/personal/" target=_new>AutoApps/AutoRemote</a> for details on setting up Autoremote and getting your
 <code> personal key</code>.</p>
 
@@ -6,7 +6,7 @@
     <div class="row-fluid">
 	<div class="span3"><h4>Autoremote Key</h4></div>
 	<div class="span4">
-            <input type="text" class="input-block-level" data-bind="value: settings.plugins.OctoRemote.autoremotekey">
+            <input type="text" class="input-block-level" data-bind="value: settings.plugins.OctoAutoremote.autoremotekey">
         </div>
     </div>
     <div><hr></div>
@@ -39,7 +39,7 @@
     <div class="row-fluid">
         <div class="span3">{{event}}</div>
         <div class="span1 control-group" title="Enable or disable this notification">
-          <input type="checkbox" data-bind="checked: settings.plugins.OctoRemote.events.{{ event }}">
+          <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{ event }}">
         </div>
     </div>
     {% endfor %}
