@@ -73,55 +73,55 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 	
             if 'remoteAddress' in payload:
                 message += ",RemoteAddress:" + payload["remoteAddress"]
-				self._logger.debug("forming_Message: remoteAddress: %s" % remoteAddress)
+                self._logger.debug("forming_Message: remoteAddress: %s" % remoteAddress)
             if 'port' in payload:
                 message += ",Port:" + payload["Port"]
-				self._logger.debug("forming_Message: port: %s" % port)
+                self._logger.debug("forming_Message: port: %s" % port)
             if 'baudrate' in payload:
                 message += ",baudrate:" + payload["baudrate"]
-				self._logger.debug("forming_Message: baudrate: %s" % baudrate)
+                self._logger.debug("forming_Message: baudrate: %s" % baudrate)
             if 'error' in payload:
                 message += ",error:" + payload["error"]
-				self._logger.debug("forming_Message: error: %s" % error)
+                self._logger.debug("forming_Message: error: %s" % error)
             if 'file' in payload:
                 message += ",file:" + payload["file"]
-				self._logger.debug("forming_Message: file: %s" % file)
+                self._logger.debug("forming_Message: file: %s" % file)
             if 'filename' in payload:
                 message += ",filename:" + payload["filename"]
-				self._logger.debug("forming_Message: filename: %s" % filename)
+                self._logger.debug("forming_Message: filename: %s" % filename)
             if 'name' in payload:
                 message += ",name:" + payload["name"]
-				self._logger.debug("forming_Message: name: %s" % name)
+                self._logger.debug("forming_Message: name: %s" % name)
             if 'path' in payload:
                 message += ",path:" + payload["path"]
-				self._logger.debug("forming_Message: path: %s" % path)
+                self._logger.debug("forming_Message: path: %s" % path)
             if 'origin' in payload:
                 message += ",origin:" + payload["origin"]
-				self._logger.debug("forming_Message: origin: %s" % origin)
+                self._logger.debug("forming_Message: origin: %s" % origin)
             if 'time' in payload:
                 message += ",time:" +  str(payload["time"])
-				self._logger.debug("forming_Message: time: %s" % time)
+                self._logger.debug("forming_Message: time: %s" % time)
             if 'firmwareError' in payload:
                 message += ",firmwareError:" +  str(payload["firmwareError"])
-				self._logger.debug("forming_Message: firmwareError: %s" % firmwareError)
+                self._logger.debug("forming_Message: firmwareError: %s" % firmwareError)
             if 'position' in payload:
                 message += ",position:" +  payload["position"]
-				self._logger.debug("forming_Message: position: %s" % position)
+                self._logger.debug("forming_Message: position: %s" % position)
             if 'gcode' in payload:
                 message += ",gcode:" +  payload["gcode"]
-				self._logger.debug("forming_Message: gcode: %s" % gcode)
+                self._logger.debug("forming_Message: gcode: %s" % gcode)
             if 'movie' in payload:
                 message += ",movie:" +  payload["movie"]
-				self._logger.debug("forming_Message: movie: %s" % movie)
+                self._logger.debug("forming_Message: movie: %s" % movie)
             if 'movie_basename' in payload:
                 message += ",movie_basename:" +  payload["movie_basename"]
-				self._logger.debug("forming_Message: movie_basename: %s" % movie_basename)
+                self._logger.debug("forming_Message: movie_basename: %s" % movie_basename)
             if 'returncode' in payload:
                 message += ",returncode:" +  payload["returncode"]
-				self._logger.debug("forming_Message: returncode: %s" % returncode)
+                self._logger.debug("forming_Message: returncode: %s" % returncode)
             if 'reason' in payload:
                 message += ",reason:" +  payload["reason"]
-				self._logger.debug("forming_Message: reason: %s" % reason)
+                self._logger.debug("forming_Message: reason: %s" % reason)
         
             self._logger.info("Calling Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
             self._send_AutoRemote(event, autoremotekey, message)
