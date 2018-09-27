@@ -1,2 +1,2 @@
 include README.md
-recursive-include octoprint_Webhooks *
+recursive-include Octoprint_Autoremote *
