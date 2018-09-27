@@ -149,7 +149,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 
     def _send_AutoRemote(self, trigger, autoremotekey, message="No_Message"):
         import requests
-        url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=" + trigger + "=:=" + message
+        url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=OctoAutoremote=:=" + trigger + ":" + message
         res = requests.post(url)
         self._logger.info("URL: %s" % url)
         self._logger.info("Trigger: %s Response: %s" % (trigger, res.text))
