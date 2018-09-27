@@ -5,8 +5,8 @@
        <p>See <a href="https://joaoapps.com/autoremote/personal/" target=_new>AutoApps/AutoRemote</a> for details on setting up Autoremote
        and getting your <code>personal key</code>.</p>
         <div class="row-fluid">
-	    <div class="span2"><h4>Autoremote Key</h4></div>
-	    <div class="span10">
+	    <div class="span3"><h4>Autoremote Key</h4></div>
+	    <div class="span9">
                 <input type="text" class="input-block-level" data-bind="value: settings.plugins.OctoAutoremote.autoremotekey">
             </div>
         </div>
@@ -18,7 +18,7 @@
     {% set serverevents = ["Startup","Shutdown","ClientOpened","ClientClosed"] %}
     
     <div class="octoautoremote_config_group">
-    <h2>Printing Events</h2>
+        <h2>Printing Events</h2>
         <div class="row-fluid">
             <div class="span3"><h4>Event</h4></div>
             <div class="span1"><h4>Enable</h4></div>
@@ -28,12 +28,13 @@
             <div class="span3">{{printingevent}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
               <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{printingevent}}">
+	    </div>
         </div>
     {% endfor %}
     </div>
 
     <div class="octoautoremote_config_group">
-    <h2>Printer Events</h2>
+        <h2>Printer Events</h2>
         <div class="row-fluid">
             <div class="span3"><h4>Event</h4></div>
             <div class="span1"><h4>Enable</h4></div>
@@ -43,12 +44,13 @@
             <div class="span3">{{printerevent}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
               <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{printerevent}}">
+	    </div>
         </div>
     {% endfor %}
     </div>
 
     <div class="octoautoremote_config_group">
-    <h2>Server Events</h2>
+        <h2>Server Events</h2>
         <div class="row-fluid">
             <div class="span3"><h4>Event</h4></div>
             <div class="span1"><h4>Enable</h4></div>
@@ -58,12 +60,13 @@
             <div class="span3">{{serverevent}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
               <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{serverevent}}">
+	    </div>
         </div>
     {% endfor %}
     </div>
 
     <div class="octoautoremote_config_group">
-    <h2>TimeLapse Events</h2>
+        <h2>TimeLapse Events</h2>
         <div class="row-fluid">
             <div class="span3"><h4>Event</h4></div>
             <div class="span1"><h4>Enable</h4></div>
@@ -73,6 +76,7 @@
             <div class="span3">{{timelapseevent}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
               <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{timelapseevent}}">
+	    </div>
         </div>
     {% endfor %}
     </div>
