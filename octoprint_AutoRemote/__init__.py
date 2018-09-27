@@ -11,7 +11,7 @@ import os
 #Add progress for % or Layer and textbox for value
 #Add URL field for each trigger to make it a general webhook plugin instead of just AutoRemote
 
-class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
+class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                         octoprint.plugin.TemplatePlugin,
                         octoprint.plugin.SettingsPlugin,
                         octoprint.plugin.EventHandlerPlugin):
@@ -26,37 +26,37 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
             self._logger.info("No Autoremote Personal key set while trying to save!")
                     
     def on_after_startup(self):
-        self._logger.info("OctoRemote Plugin Active")
+        self._logger.info("OctoAutoremote Plugin Active")
 #        self.autoremotekey = self._settings.get(["autoremotekey"])
 #        self._logger.debug("AutoRemote personal Key: %s" % self.autoremotekey)
 
     def get_settings_defaults(self):
         return dict(autoremotekey="",
                     events=dict(PrintStarted=False
-				,PrintFailed=False
-				,PrintCancelling=False
-				,PrintCancelled=False
-				,PrintPaused=False
-				,PrintResumed=False
-				,PrintDone=False
-				,MovieRendering=False
-				,MovieDone=False
-				,MovieFailed=False
-				,Error=False
-				,Startup=False
-				,Shutdown=False
-				,Connecting=False
-				,Connected=False
-				,Disconnecting=False
-				,Disconnected=False
-				,ClientOpened=False
-				,ClientClosed=False
-			       )
-                    )
+					,PrintFailed=False
+					,PrintCancelling=False
+					,PrintCancelled=False
+					,PrintPaused=False
+					,PrintResumed=False
+					,PrintDone=False
+					,MovieRendering=False
+					,MovieDone=False
+					,MovieFailed=False
+					,Error=False
+					,Startup=False
+					,Shutdown=False
+					,Connecting=False
+					,Connected=False
+					,Disconnecting=False
+					,Disconnected=False
+					,ClientOpened=False
+					,ClientClosed=False
+					)
+                   )
                 
             
     def get_template_configs(self):
-        return [ dict(type="settings", name="OctoRemote", custom_bindings=False) ]
+        return [ dict(type="settings", name="OctoAutoremote", custom_bindings=False) ]
 
     def get_settings_restricted_paths(self):
         # only used in OctoPrint versions > 1.2.16
@@ -67,7 +67,7 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
     def on_event(self, event, payload):
         events = self._settings.get(['events'], merged=True)
         autoremotekey = self._settings.get(['autoremotekey'])
-#        self._logger.debug("on_event: autoremotekey: %s" % autoremotekey)
+        self._logger.debug("on_event: autoremotekey: %s" % autoremotekey)
         if event in events and events[event]:
             message = ""
 	
@@ -105,7 +105,10 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
                 message += ",returncode:" +  payload["returncode"]
             if 'reason' in payload:
                 message += ",reason:" +  payload["reason"]
-            self._send_AutoRemote(event, autoremotekey, message)
+        
+			self._logger.info("Calling Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
+           self._send_AutoRemote(event, autoremotekey, message)
+			self._logger.info("Called Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
         else:
             self._logger.info("Event skipped: %s" % event)
           
@@ -118,7 +121,7 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
 #            elapsed_time = octoprint.util.get_formatted_timedelta(datetime.timedelta(seconds=elapsed_time_in_seconds))
 #            self._send_AutoRemote("PrintDone", file, elapsed_time)
 
-    def _send_AutoRemote(self, trigger, autoremotekey, message=None):
+    def _send_AutoRemote(self, trigger, autoremotekey, message="No_Message"):
         import requests
         url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=" + trigger + "=:=" + message
         res = requests.post(url)
@@ -128,7 +131,7 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
 
     def get_update_information(self):
         return dict(
-            OctoRemote=dict(
+            OctoAutoremote=dict(
                 displayName=self._plugin_name,
                 displayVersion=self._plugin_version,
 
@@ -144,8 +147,8 @@ class OctoRemotePlugin(octoprint.plugin.StartupPlugin,
                                                                                             
 ######
                         
-__plugin_name__ = "OctoRemote"
-__plugin_implementation__ = OctoRemotePlugin()
+__plugin_name__ = "OctoAutoremote"
+__plugin_implementation__ = OctoAutoremotePlugin()
 
 
 global __plugin_hooks__
