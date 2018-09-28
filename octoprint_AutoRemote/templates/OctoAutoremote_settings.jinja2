@@ -13,10 +13,10 @@
     </div>
 
     <div><hr></div>
-    {% set printerevents = ["Connecting","Connected","Disconnecting","Disconnected","Error"] %}
     {% set printingevents = ["PrintStarted","PrintFailed","PrintCancelling","PrintCancelled","PrintPaused","PrintResumed","PrintDone"] %}
-    {% set timelapseevents = ["MovieRendering","MovieDone","MovieFailed"] %}
+    {% set printerevents = ["Connecting","Connected","Disconnecting","Disconnected","Error"] %}
     {% set serverevents = ["Startup","Shutdown","ClientOpened","ClientClosed"] %}
+    {% set timelapseevents = ["MovieRendering","MovieDone","MovieFailed"] %}
     
     <h2>Printing Events</h2>
     <div class="octoautoremote_config_group">
@@ -28,7 +28,7 @@
         <div class="row-fluid">
             <div class="span3">{{event}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
-              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.enabled">
+              <input type="checkbox" data-bind="checked: settings.settings.plugins.OctoAutoremote.events.{{event}}.enabled">
 	    </div>
        </div>
     {% endfor %}
@@ -45,7 +45,7 @@
         <div class="row-fluid">
             <div class="span3">{{event}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
-              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.enabled">
+              <input type="checkbox" data-bind="checked: settings.settings.plugins.OctoAutoremote.events.{{event}}.enabled">
 	    </div>
         </div>
     {% endfor %}
@@ -62,7 +62,7 @@
         <div class="row-fluid">
             <div class="span3">{{event}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
-              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.enabled">
+              <input type="checkbox" data-bind="checked: settings.settings.plugins.OctoAutoremote.events.{{event}}.enabled">
 	    </div>
         </div>
     {% endfor %}
@@ -79,7 +79,7 @@
         <div class="row-fluid">
             <div class="span3">{{event}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
-              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}.enabled">
+              <input type="checkbox" data-bind="checked: settings.settings.plugins.OctoAutoremote.events.{{event}}.enabled">
 	    </div>
         </div>
     {% endfor %}
