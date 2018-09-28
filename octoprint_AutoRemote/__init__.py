@@ -148,7 +148,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 
                 type="github_release",
                 current=self._plugin_version,
-                user="sedgett",
+                user="trunzoc",
                 repo="octoprint_AutoRemote",
                 stable_branch=dict(branch="master", name="Stable"),
                 pip="https://github.com/trunzoc/octoprint_Autoremote/archive/{target_version}.zip"
