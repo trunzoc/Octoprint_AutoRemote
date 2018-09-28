@@ -16,13 +16,17 @@ via this URL:
 
     ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/autoremoteifttticon.png)
 4) click the IFTTT icon. We aren't using IFTTT, but this is the easiest way to get your key and create a "Sender". 
-    ![screenshot](/assets/img/plugins/OctoAutoremote/autoremoteifttticon.png)
+    
+    ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/autoremoteifttticon.png)
 5) A "Register IFTTT" window will open.  Type anything you want, I just used "OctoAutoRemote", and hit OK.
-    ![screenshot](/assets/img/plugins/OctoAutoremote/autoremoteifttticon.png)
+    
+    ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/autoremoteifttticon.png)
 6) Enter the same thing you entered for step 5 here then hit OK.
-    ![screenshot](/assets/img/plugins/OctoAutoremote/devicename.png)
+    
+    ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/devicename.png)
 7) AutoRemote will ask to generate a URL that has your personal key. Hit OK. Choose the delivery method of your choice and send it. Something on your PC like email is preferable so you can copy/paste. If it does not ask to shar eit automatically, long-press the device that was created and choose "Generate IFTTT URL"
-    ![screenshot](/assets/img/plugins/OctoAutoremote/generateurl.png)
+    
+    ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/generateurl.png)
 8) The URL sent will be something like https://autoremotejoaomgcd.appspot.com/sendmessage?key=<a rediculously long key that identifies you>&sender=<name form step 5/6>&message=MESSAGE_HERE    
 9) Open the plugin settings in OctoPrint. 
 10) Enter the KEY value from the URL to the Personal Key field.  Add the SENDER value to the sender field.
