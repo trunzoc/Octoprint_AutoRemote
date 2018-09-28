@@ -38,7 +38,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         return dict(
             autoremotekey = "",
             events = dict(
-                PrintStarted[dict(
+                PrintStarted=[dict(
                     enabled = False,
                     url = ""
                     )],
