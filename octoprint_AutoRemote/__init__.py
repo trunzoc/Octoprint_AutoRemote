@@ -16,7 +16,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                         octoprint.plugin.SettingsPlugin,
                         octoprint.plugin.EventHandlerPlugin):
 
-    def __init__(self):
+#    def __init__(self):
 #        self._logger = logging.getLogger("octoprint.plugins.OctoAutoremote")
 #        self._OctoAutoremote_logger = logging.getLogger("octoprint.plugins.OctoAutoremote.debug")
 
