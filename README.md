@@ -36,12 +36,12 @@ via this URL:
 ## Message Format
 
 messages will be send in the format:
-OctoAutoremote=:=<triggerevent>,<data1name>:<data1value>,<data2name>:<data2value>,<data3name>:<data3value>,etc
+OctoAutoremote=:={triggerevent},{data1name}:{data1value},{data2name}:{data2value},{data3name}:{data3value},etc
 OctoAutoremote=:=ClientOpened,RemoteAddress:ffff:xxx.xxx.xxx.xxx
 OctoAutoremote=:=Startup,No_Data_For_This_Event
 OctoAutoremote=:=Connected,port:AUTO,baudrate:115200
 
 ## TASKER
 
- [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm) is a complicated beast.  I'll leave that to you to configure.
+[Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm) is a complicated beast.  I'll leave that to you to configure.
 
