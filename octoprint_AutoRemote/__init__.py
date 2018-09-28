@@ -32,6 +32,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 
     def get_settings_defaults(self):
         return dict(autoremotekey="",
+		    autoremotesender="",
                     events=dict(PrintStarted=False
 					,PrintFailed=False
 					,PrintCancelling=False
@@ -74,11 +75,12 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         autoremotekey = self._settings.get(['autoremotekey'])
         self._logger.debug("on_event: autoremotekey: %s" % autoremotekey)
         if event in events and events[event]:
-            message = "timestamp:" + __now + ",currentprogress:" + __progress
+            message = ""
 	
             if not payload:
                 payload = {}
-            
+                message = "No_Data_For_This_Event"
+
             if 'remoteAddress' in payload:
                 message += ",RemoteAddress:" + payload["remoteAddress"]
                 self._logger.debug("forming_Message: remoteAddress: %s" % payload["remoteAddress"])
