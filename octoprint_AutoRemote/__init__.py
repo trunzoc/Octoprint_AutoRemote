@@ -115,6 +115,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                     url = ""
                     )]
                 )
+            )
             
     def get_template_configs(self):
         return [ dict(type="settings", name="OctoAutoremote", custom_bindings=False) ]
