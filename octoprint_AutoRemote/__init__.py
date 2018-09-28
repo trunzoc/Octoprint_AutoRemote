@@ -66,6 +66,10 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 					,MovieRendering=False
 					,MovieDone=False
 					,MovieFailed=False
+					,CaptureStart=False
+					,CaptureDone=False
+					,CaptureFailed=False
+                                        ,SettingsUpdated=False
 					)
                    )
                 
@@ -99,16 +103,15 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                     message += ",%s:%s" % (data, str(payload[data]))
                     self._logger.debug("forming_Message: %s: %s" % (data, str(payload[data])))
                 
-            message = message[1:]
             self._logger.info("Calling Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
             self._send_AutoRemote(event, autoremotekey, message)
             self._logger.info("Called Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
         else:
             self._logger.info("Event skipped: %s" % event)
 
-    def _send_AutoRemote(self, trigger, autoremotekey, message="No_Message"):
+    def _send_AutoRemote(self, trigger, autoremotekey, message=",No_Message"):
         import requests
-        url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=OctoAutoremote=:=" + trigger + "," + message
+        url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=OctoAutoremote=:=" + trigger + message
         res = requests.post(url)
         self._logger.info("URL: %s" % url)
         self._logger.info("Trigger: %s Response: %s" % (trigger, res.text))
