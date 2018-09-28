@@ -70,7 +70,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 				 enabled = False,
                                  url = ""
 			 )],
-			 MovieDone"=[dict(
+			 MovieDone=[dict(
 				 enabled = False,
                                  url = ""
 		         )],
