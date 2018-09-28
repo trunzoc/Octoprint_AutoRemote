@@ -12,8 +12,8 @@ via this URL:
 ## Configuration
 1) If you have not already done so, install [AutoRemote](https://play.google.com/store/apps/details?id=com.joaomgcd.autoremote) on your Android phone.
 2) Register or log in to AutoRemote
-3) click the Phone icon. https://raw.githubusercontent.com/FormerLurker/Octolapse/master/Extras/Wiki/assets/img/tab_mini.png
-    ![screenshot](https://raw.githubusercontent.comTrunzoc/Octoprint_AutoRemote/master/Extras/Wiki/Assets/img/autoremotephoneicon.png)
+3) click the Phone icon. 
+    ![screenshot](https://raw.githubusercontent.com/Trunzoc/Octoprint_AutoRemote/master/Extras/Wiki/Assets/img/autoremotephoneicon.png)
 4) click the IFTTT icon. We aren't using IFTTT, but this is the easiest way to get your key and create a "Sender". 
     ![screenshot](/assets/img/plugins/OctoAutoremote/autoremoteifttticon.png)
 5) A "Register IFTTT" window will open.  Type anything you want, I just used "OctoAutoRemote", and hit OK.
