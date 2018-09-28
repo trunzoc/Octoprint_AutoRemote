@@ -33,7 +33,29 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
     def get_settings_defaults(self):
         return dict(autoremotekey="",
 		    autoremotesender="",
-                    events=dict(PrintStarted=False
+                    events=dict(Startup=False
+					,Shutdown=False
+					,ClientOpened=False
+					,ClientClosed=False
+					,ConnectivityChanged=False
+					,Connecting=False
+					,Connected=FalsePrintStarted=False
+					,Disconnecting=False
+					,Disconnected=False
+					,Error=False
+					,PrinterStateChanged=False
+                                        ,Upload=False
+                                        ,FileAdded=False
+                                        ,FileRemoved=False
+                                        ,FolderAdded=False
+                                        ,FolderRemoved=False
+                                        ,UpdatedFiles=False
+                                        ,MetadataAnalysisStarted=False
+                                        ,MetadataAnalysisFinished=False
+                                        ,FileSelected=False
+                                        ,FileDeselected=False
+                                        ,TransferStarted=False
+                                        ,TransferDone=False
 					,PrintFailed=False
 					,PrintCancelling=False
 					,PrintCancelled=False
@@ -43,15 +65,6 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 					,MovieRendering=False
 					,MovieDone=False
 					,MovieFailed=False
-					,Error=False
-					,Startup=False
-					,Shutdown=False
-					,Connecting=False
-					,Connected=False
-					,Disconnecting=False
-					,Disconnected=False
-					,ClientOpened=False
-					,ClientClosed=False
 					)
                    )
                 
@@ -126,6 +139,12 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
             if 'reason' in payload:
                 message += ",reason:" +  payload["reason"]
                 self._logger.debug("forming_Message: reason: %s" % payload["reason"])
+            if 'target' in payload:
+                message += ",reason:" +  payload["target"]
+                self._logger.debug("forming_Message: reason: %s" % payload["target"])
+            if 'storage' in payload:
+                message += ",reason:" +  payload["storage"]
+                self._logger.debug("forming_Message: reason: %s" % payload["storage"])
 
             message = message[1:]
             self._logger.info("Calling Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
