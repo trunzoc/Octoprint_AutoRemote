@@ -39,7 +39,8 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 					,ClientClosed=False
 					,ConnectivityChanged=False
 					,Connecting=False
-					,Connected=FalsePrintStarted=False
+					,Connected=False
+					,PrintStarted=False
 					,Disconnecting=False
 					,Disconnected=False
 					,Error=False
