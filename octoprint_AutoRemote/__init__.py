@@ -90,8 +90,8 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 
     def on_event(self, event, payload):
         events = self._settings.get(['events'], merged=True)
-        self._logger.debug("on_event: autoremotekey: %s" % autoremotekey)
-        if event in events and events[event]:
+
+	if event in events and events[event]:
             message = ""
 	
             if not payload:
