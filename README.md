@@ -14,13 +14,13 @@ via this URL:
 2) Register or log in to AutoRemote
 3) click the Phone icon.
 
-    ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/autoremoteifttticon.png)
+    ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/autoremotephoneicon.png)
 4) click the IFTTT icon. We aren't using IFTTT, but this is the easiest way to get your key and create a "Sender". 
     
     ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/autoremoteifttticon.png)
 5) A "Register IFTTT" window will open.  Type anything you want, I just used "OctoAutoRemote", and hit OK.
     
-    ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/autoremoteifttticon.png)
+    ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/registerifttticon.png)
 6) Enter the same thing you entered for step 5 here then hit OK.
     
     ![screenshot](https://github.com/trunzoc/Octoprint_AutoRemote/blob/master/octoprint_AutoRemote/Wiki/assets/img/devicename.png)
