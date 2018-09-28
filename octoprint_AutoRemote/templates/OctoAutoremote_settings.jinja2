@@ -22,9 +22,10 @@
     
     <div><hr></div>
     {% set printingevents = ["PrintStarted","PrintFailed","PrintCancelling","PrintCancelled","PrintPaused","PrintResumed","PrintDone"] %}
-    {% set printerevents = ["Connecting","Connected","Disconnecting","Disconnected","Error"] %}
-    {% set serverevents = ["Startup","Shutdown","ClientOpened","ClientClosed"] %}
+    {% set printerevents = ["Connecting","Connected","Disconnecting","Disconnected","Error","PrinterStateChanged"] %}
+    {% set serverevents = ["Startup","Shutdown","ClientOpened","ClientClosed","ConnectivityChanged"] %}
     {% set timelapseevents = ["MovieRendering","MovieDone","MovieFailed"] %}
+    {% set fileevents = ["Upload","FileAdded","FileRemoved","FolderAdded","FolderRemoved","UpdatedFiles","MetadataAnalysisStarted","MetadataAnalysisFinished","FileSelected","FileDeselected","TransferStarted","TransferDone"] %}
     
     <h2>Printing Events</h2>
     <div class="octoautoremote_config_group">
@@ -84,6 +85,23 @@
             <div class="span1"><h4>Enable</h4></div>
 	</div>
     {% for event in timelapseevents %}
+        <div class="row-fluid">
+            <div class="span3">{{event}}</div>
+            <div class="span1 control-group" title="Enable or disable this notification">
+              <input type="checkbox" data-bind="checked: settings.plugins.OctoAutoremote.events.{{event}}">
+	    </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div><hr></div>
+    <h2>File Events Events</h2>
+    <div class="octoautoremote_config_group">
+        <div class="row-fluid">
+            <div class="span3"><h4>Event</h4></div>
+            <div class="span1"><h4>Enable</h4></div>
+	</div>
+    {% for event in fileevents %}
         <div class="row-fluid">
             <div class="span3">{{event}}</div>
             <div class="span1 control-group" title="Enable or disable this notification">
