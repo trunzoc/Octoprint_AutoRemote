@@ -129,6 +129,9 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         # only used in OctoPrint versions > 1.2.16
         return dict(admin=[["autoremotekey"]])
 
+    def on_settings_save(self, data):
+         ctoprint.plugin.SettingsPlugin.on_settings_save(self, data)
+
 ######
 
     def on_event(self, event, payload):
@@ -221,7 +224,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 
                 type="github_release",
                 current=self._plugin_version,
-                user="sedgett",
+                user="trunzoc",
                 repo="octoprint_AutoRemote",
                 stable_branch=dict(branch="master", name="Stable"),
                 pip="https://github.com/trunzoc/octoprint_Autoremote/archive/{target_version}.zip"
