@@ -74,12 +74,11 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         autoremotekey = self._settings.get(['autoremotekey'])
         self._logger.debug("on_event: autoremotekey: %s" % autoremotekey)
         if event in events and events[event]:
-            message = ""
+            message = "timestamp:" + __now + ",currentprogress:" + __progress
 	
             if not payload:
-                payload = ["no_payload"]
-                message += ",No_Message"
-		
+                payload = {}
+            
             if 'remoteAddress' in payload:
                 message += ",RemoteAddress:" + payload["remoteAddress"]
                 self._logger.debug("forming_Message: remoteAddress: %s" % payload["remoteAddress"])
@@ -92,12 +91,6 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
             if 'error' in payload:
                 message += ",error:" + payload["error"]
                 self._logger.debug("forming_Message: error: %s" % payload["error"])
-            if 'file' in payload:
-                message += ",file:" + payload["file"]
-                self._logger.debug("forming_Message: file: %s" % payload["file"])
-            if 'filename' in payload:
-                message += ",filename:" + payload["filename"]
-                self._logger.debug("forming_Message: filename: %s" % payload["filename"])
             if 'name' in payload:
                 message += ",name:" + payload["name"]
                 self._logger.debug("forming_Message: name: %s" % payload["name"])
