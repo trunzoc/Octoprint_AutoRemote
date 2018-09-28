@@ -180,7 +180,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
             self._logger.debug("forming_Message: time: %s" % str(payload["time"]))
         if 'firmwareError' in payload:
             message += ",firmwareError:" +  str(payload["firmwareError"])
-           self._logger.debug("forming_Message: firmwareError: %s" % payload["firmwareError"])
+            self._logger.debug("forming_Message: firmwareError: %s" % payload["firmwareError"])
         if 'position' in payload:
             message += ",position:" +  payload["position"]
             self._logger.debug("forming_Message: position: %s" % payload["position"])
