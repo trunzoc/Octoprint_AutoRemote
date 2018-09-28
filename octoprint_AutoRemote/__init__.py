@@ -36,85 +36,85 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 
     def get_settings_defaults(self):
         return dict(
-		autoremotekey = "",
-                events = dict(
-			 PrintStarted[dict(
-				 enabled = False,
-                                 url = ""
-			 )],
-			 PrintFailed=[dict(
-				 enabled = False,
-                                 url = "
-			 )],
-			 PrintCancelling=[dict(
-				 enabled = False,
-                                 url" = ""
-			 )],
-			 PrintCancelled=[dict(
-				 enabled = False,
-                                 url = ""
-			 )],
-			 PrintPaused=[dict(
-				 enabled = False,
-                                 url = ""
-			 )],
-			 PrintResumed=[dict(
-				 enabled = False,
-                                 url = ""
-			 )],
-			 PrintDone=[dict(
-				 enabled = False,
-                                 url = ""
-			 )],
-			 MovieRendering=[dict(
-				 enabled = False,
-                                 url = ""
-			 )],
-			 MovieDone=[dict(
-				 enabled = False,
-                                 url = ""
-		         )],
-			 MovieFailed=[dict(
-				 enabled = False,
-                                 url = ""
-			 )],
-			 Error=[dict(
-				 enabled = False,
-                                 url = ""
-			         )],
-			 Startup=[dict(
-				 enabled = False,
-                                 url = ""
-			         )],
-			 Shutdown=[dict(
-				 enabled = False,
-                                 url = ""
-			         )],
-			 Connecting=[dict(
-				 enabled = False,
-                                 url = ""
-			         )],
-			 Connected=[dict(
-				 enabled = False,
-                                 url = ""
-			         )],
-			 Disconnecting=[dict(
-				 enabled = False,
-                                 url = ""
-			         )],
-			 Disconnected=[dict(
-				 enabled = False,
-                                 url = ""
-			         )],
-			 ClientOpened=[dict(
-				 enabled = False,
-                                 url = ""
-			         )],
-			 ClientClosed=[dict(
-				 enabled = False,
-                                 url = ""
-			         )],
-                  )
+            autoremotekey = "",
+            events = dict(
+                PrintStarted[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                PrintFailed=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                PrintCancelling=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                PrintCancelled=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                PrintPaused=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                PrintResumed=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                PrintDone=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                MovieRendering=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                MovieDone=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                MovieFailed=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                Error=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                Startup=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                Shutdown=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                Connecting=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                Connected=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                Disconnecting=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                Disconnected=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                ClientOpened=[dict(
+                    enabled = False,
+                    url = ""
+                    )],
+                ClientClosed=[dict(
+                    enabled = False,
+                    url = ""
+                    )]
+                )
             
     def get_template_configs(self):
         return [ dict(type="settings", name="OctoAutoremote", custom_bindings=False) ]
