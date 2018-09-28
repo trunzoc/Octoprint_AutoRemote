@@ -148,7 +148,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                 self._logger.debug("forming_Message: reason: %s" % payload["storage"])
             
             message = ""
-            for data in payload
+            for data in payload:
                 message += ",%s:%s" % (data, payload[data])
                 self._logger.debug("forming_Message: %s: %s" % (data, payload[data]))
                 
