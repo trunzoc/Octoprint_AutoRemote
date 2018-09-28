@@ -36,7 +36,10 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 
     def get_settings_defaults(self):
         return dict(
-            autoremotekey = "",
+            autoremotekey = dict(
+                value="",
+                test=""
+            ),
             events = dict(
                 PrintStarted=[dict(
                     enabled = False,
