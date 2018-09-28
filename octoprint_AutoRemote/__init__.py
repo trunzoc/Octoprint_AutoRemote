@@ -102,9 +102,9 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                     message += ",%s:%s" % (data, str(payload[data]))
                     self._logger.debug("forming_Message: %s: %s" % (data, str(payload[data])))
                 
-            self._logger.info("Calling Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
+            self._logger.info("Calling Send: Event: %s Message: %s" % (event, message))
             self._send_AutoRemote(event, message)
-            self._logger.info("Called Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
+            self._logger.info("Called Send: Event: %s Message: %s" % (event, message))
         else:
             self._logger.info("Event skipped: %s" % event)
 
