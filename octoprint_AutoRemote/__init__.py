@@ -90,7 +90,6 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 
     def on_event(self, event, payload):
         events = self._settings.get(['events'], merged=True)
-        autoremotekey = self._settings.get(['autoremotekey'])
         self._logger.debug("on_event: autoremotekey: %s" % autoremotekey)
         if event in events and events[event]:
             message = ""
@@ -104,15 +103,24 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                     self._logger.debug("forming_Message: %s: %s" % (data, str(payload[data])))
                 
             self._logger.info("Calling Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
-            self._send_AutoRemote(event, autoremotekey, message)
+            self._send_AutoRemote(event, message)
             self._logger.info("Called Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
         else:
             self._logger.info("Event skipped: %s" % event)
 
-    def _send_AutoRemote(self, trigger, autoremotekey, message=",No_Message"):
+    def _send_AutoRemote(self, trigger, message=",No_Message"):
         import requests
-        url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=OctoAutoremote=:=" + trigger + message
-        res = requests.post(url)
+	
+        autoremotekey = self._settings.get(['autoremotekey'])
+        autoremotesender = self._settings.get(['autoremotesender'])
+	
+        url = "https://autoremotejoaomgcd.appspot.com/sendmessage"
+        url += "?key=" + autoremotekey
+        if autoremotesender:
+            url += "&sender=" + autoremotesender
+        url += "&message=OctoAutoremote=:=" + trigger + message
+        
+	res = requests.post(url)
         self._logger.info("URL: %s" % url)
         self._logger.info("Trigger: %s Response: %s" % (trigger, res.text))
         
