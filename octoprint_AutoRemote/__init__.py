@@ -31,29 +31,86 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 #        self._logger.debug("AutoRemote personal Key: %s" % self.autoremotekey)
 
     def get_settings_defaults(self):
-        return dict(autoremotekey="",
-                    events=dict(PrintStarted=False
-					,PrintFailed=False
-					,PrintCancelling=False
-					,PrintCancelled=False
-					,PrintPaused=False
-					,PrintResumed=False
-					,PrintDone=False
-					,MovieRendering=False
-					,MovieDone=False
-					,MovieFailed=False
-					,Error=False
-					,Startup=False
-					,Shutdown=False
-					,Connecting=False
-					,Connected=False
-					,Disconnecting=False
-					,Disconnected=False
-					,ClientOpened=False
-					,ClientClosed=False
-					)
+        return "autoremotekey" : "",
+                    "events" : {
+			 "PrintStarted" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "PrintFailed" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "PrintCancelling" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "PrintCancelled" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "PrintPaused" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "PrintResumed" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "PrintDone" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "MovieRendering" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "MovieDone" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "MovieFailed" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "Error" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "Startup" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "Shutdown" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "Connecting" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "Connected" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "Disconnecting" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "Disconnected" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "ClientOpened" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			 "ClientClosed" : {
+				 "enabled" : False,
+                                 "url" : ""
+			         },
+			},
                    )
-                
             
     def get_template_configs(self):
         return [ dict(type="settings", name="OctoAutoremote", custom_bindings=False) ]
@@ -70,87 +127,82 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 ######
 
     def on_event(self, event, payload):
-        events = self._settings.get(['events'], merged=True)
         autoremotekey = self._settings.get(['autoremotekey'])
         self._logger.debug("on_event: autoremotekey: %s" % autoremotekey)
-        if event in events and events[event]:
-            message = ""
-	
-            if not payload:
-                payload = ["no_payload"]
-                message += ",No_Message"
 		
-            if 'remoteAddress' in payload:
-                message += ",RemoteAddress:" + payload["remoteAddress"]
-                self._logger.debug("forming_Message: remoteAddress: %s" % payload["remoteAddress"])
-            if 'port' in payload:
-                message += ",port:" + str(payload["port"])
-                self._logger.debug("forming_Message: port: %s" % str(payload["port"]))
-            if 'baudrate' in payload:
-                message += ",baudrate:" + str(payload["baudrate"])
-                self._logger.debug("forming_Message: baudrate: %s" % str(payload["baudrate"]))
-            if 'error' in payload:
-                message += ",error:" + payload["error"]
-                self._logger.debug("forming_Message: error: %s" % payload["error"])
-            if 'file' in payload:
-                message += ",file:" + payload["file"]
-                self._logger.debug("forming_Message: file: %s" % payload["file"])
-            if 'filename' in payload:
-                message += ",filename:" + payload["filename"]
-                self._logger.debug("forming_Message: filename: %s" % payload["filename"])
-            if 'name' in payload:
-                message += ",name:" + payload["name"]
-                self._logger.debug("forming_Message: name: %s" % payload["name"])
-            if 'path' in payload:
-                message += ",path:" + payload["path"]
-                self._logger.debug("forming_Message: path: %s" % payload["path"])
-            if 'origin' in payload:
-                message += ",origin:" + payload["origin"]
-                self._logger.debug("forming_Message: origin: %s" % payload["origin"])
-            if 'time' in payload:
-                message += ",time:" +  str(payload["time"])
-                self._logger.debug("forming_Message: time: %s" % str(payload["time"]))
-            if 'firmwareError' in payload:
-                message += ",firmwareError:" +  str(payload["firmwareError"])
-                self._logger.debug("forming_Message: firmwareError: %s" % payload["firmwareError"])
-            if 'position' in payload:
-                message += ",position:" +  payload["position"]
-                self._logger.debug("forming_Message: position: %s" % payload["position"])
-            if 'gcode' in payload:
-                message += ",gcode:" +  payload["gcode"]
-                self._logger.debug("forming_Message: gcode: %s" % payload["gcode"])
-            if 'movie' in payload:
-                message += ",movie:" +  payload["movie"]
-                self._logger.debug("forming_Message: movie: %s" % payload["movie"])
-            if 'movie_basename' in payload:
-                message += ",movie_basename:" +  payload["movie_basename"]
-                self._logger.debug("forming_Message: movie_basename: %s" % payload["movie_basename"])
-            if 'returncode' in payload:
-                message += ",returncode:" +  payload["returncode"]
-                self._logger.debug("forming_Message: returncode: %s" % payload["returncode"])
-            if 'reason' in payload:
-                message += ",reason:" +  payload["reason"]
-                self._logger.debug("forming_Message: reason: %s" % payload["reason"])
+        events = self._settings.get(['events'], merged=True)
+	if events == None or not event in events:
+            return
+	
+	event_settings = events[event];
+	if event_settings == None:
+            return
 
-            message = message[1:]
-            self._logger.info("Calling Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
-            self._send_AutoRemote(event, autoremotekey, message)
-            self._logger.info("Called Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
-        else:
+	event_enabled = event_settings['enabled']
+	if not event_enabled or event_enabled == False:
             self._logger.info("Event skipped: %s" % event)
-          
-        
-#         == Events.PRINT_DONE:
-#            file = os.path.basename(payload["file"])
-#            elapsed_time_in_seconds = payload["time"]
-#            import datetime
-#            import octoprint.util    
-#            elapsed_time = octoprint.util.get_formatted_timedelta(datetime.timedelta(seconds=elapsed_time_in_seconds))
-#            self._send_AutoRemote("PrintDone", file, elapsed_time)
+            return
 
+        message = ""
+
+	if payload == None:
+            payload = {}
+            message += ",No_Message"
+
+        if 'remoteAddress' in payload:
+            message += ",RemoteAddress:" + payload["remoteAddress"]
+            self._logger.debug("forming_Message: remoteAddress: %s" % payload["remoteAddress"])
+        if 'port' in payload:
+            message += ",port:" + str(payload["port"])
+            self._logger.debug("forming_Message: port: %s" % str(payload["port"]))
+        if 'baudrate' in payload:
+            message += ",baudrate:" + str(payload["baudrate"])
+            self._logger.debug("forming_Message: baudrate: %s" % str(payload["baudrate"]))
+        if 'error' in payload:
+            message += ",error:" + payload["error"]
+            self._logger.debug("forming_Message: error: %s" % payload["error"])
+        if 'name' in payload:
+            message += ",name:" + payload["name"]
+            self._logger.debug("forming_Message: name: %s" % payload["name"])
+        if 'path' in payload:
+            message += ",path:" + payload["path"]
+            self._logger.debug("forming_Message: path: %s" % payload["path"])
+        if 'origin' in payload:
+            message += ",origin:" + payload["origin"]
+            self._logger.debug("forming_Message: origin: %s" % payload["origin"])
+        if 'time' in payload:
+            message += ",time:" +  str(payload["time"])
+            self._logger.debug("forming_Message: time: %s" % str(payload["time"]))
+        if 'firmwareError' in payload:
+            message += ",firmwareError:" +  str(payload["firmwareError"])
+           self._logger.debug("forming_Message: firmwareError: %s" % payload["firmwareError"])
+        if 'position' in payload:
+            message += ",position:" +  payload["position"]
+            self._logger.debug("forming_Message: position: %s" % payload["position"])
+        if 'gcode' in payload:
+            message += ",gcode:" +  payload["gcode"]
+            self._logger.debug("forming_Message: gcode: %s" % payload["gcode"])
+        if 'movie' in payload:
+            message += ",movie:" +  payload["movie"]
+            self._logger.debug("forming_Message: movie: %s" % payload["movie"])
+        if 'movie_basename' in payload:
+            message += ",movie_basename:" +  payload["movie_basename"]
+            self._logger.debug("forming_Message: movie_basename: %s" % payload["movie_basename"])
+        if 'returncode' in payload:
+            message += ",returncode:" +  payload["returncode"]
+            self._logger.debug("forming_Message: returncode: %s" % payload["returncode"])
+        if 'reason' in payload:
+            message += ",reason:" +  payload["reason"]
+            self._logger.debug("forming_Message: reason: %s" % payload["reason"])
+
+        message = message[1:]
+        self._logger.info("Calling Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
+        self._send_AutoRemote(event, autoremotekey, message)
+        self._logger.info("Called Send: Event: %s Key: %s Message: %s" % (event, autoremotekey, message))
+        
     def _send_AutoRemote(self, trigger, autoremotekey, message="No_Message"):
         import requests
-        url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=OctoAutoremote=:=" + trigger + ":" + message
+        url = "https://autoremotejoaomgcd.appspot.com/sendmessage?key=" + autoremotekey + "&message=OctoAutoremote=:=" + trigger + "," + message
         res = requests.post(url)
         self._logger.info("URL: %s" % url)
         self._logger.info("Trigger: %s Response: %s" % (trigger, res.text))
