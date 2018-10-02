@@ -128,11 +128,11 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 	url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
         autoremote_header = {'content-type': 'application/json'}
         autoremote_json = {
+            "key": autoremotekey,
             "message": message,
             "password": '',
             "ttl": 0,
             "collapsekey": '',
-            "key": autoremotekey,
              "sender": autoremotesender,
              "communication_base_params": {
                  "sender": autoremotesender,
