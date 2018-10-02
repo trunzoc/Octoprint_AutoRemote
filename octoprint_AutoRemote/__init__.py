@@ -106,9 +106,9 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                     self._logger.debug("forming_Message: '%s':'%s'" % (payloadname, payloadvalue))
 
             message += "}"
-            self._logger.info("Calling Send: Event: %s Message: %s" % (event, message))
+            self._logger.info("Calling Send: Event: %s ,Message: %s" % (event, message))
             self._send_AutoRemote(message)
-            self._logger.info("Called Send: Event: %s Message: %s" % (event, message))
+            self._logger.info("Called Send: Event: %s ,Message: %s" % (event, message))
         else:
             self._logger.info("Event skipped: %s" % event)
 
@@ -119,14 +119,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         autoremotesender = self._settings.get(['autoremotesender'])
 
 	url = "https://autoremotejoaomgcd.appspot.com/sendmessage"
-
-	#url += "?key=" + autoremotekey
-        #if autoremotesender:
-        #    url += "&sender=" + autoremotesender
-        #url += "&message=" + message
-	#res = requests.post(url)
 	
-        autoremote_header = {'content-type': 'application/x-www-form-urlencoded'}
         messageObj = {
                 'message': message,
                 'sender': autoremotesender,
