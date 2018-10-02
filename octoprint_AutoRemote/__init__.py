@@ -93,7 +93,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         events = self._settings.get(['events'], merged=True)
 
 	if event in events and events[event]:
-            message = "OctoAutoremote=:={'Trigger':'" + event + "'"
+            message = "OctoAutoremote=:={'Event':'" + event + "'"
 	
             if not payload:
                 payload = {}
