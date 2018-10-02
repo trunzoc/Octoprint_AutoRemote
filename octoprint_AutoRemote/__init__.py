@@ -130,12 +130,14 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                 'message': message,
                 'sender': autoremotesender,
                 'communication_base_params': {
+                     'sender': autoremotesender
                      'type': 'Message'
                      }
                 }
 	
         dataObj = {
             'key': autoremotekey,
+            'sender': autoremotesender,
             'request': json.dumps(messageObj)
 	}
 	
