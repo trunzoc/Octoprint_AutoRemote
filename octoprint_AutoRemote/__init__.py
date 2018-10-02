@@ -134,10 +134,8 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
  	self._logger.info("Sending %s to URL: %s" % (dataObj, url))
  
  	res = requests.post(url, data=dataObj)
- 		    
-         self._logger.info("Response from %s: %s" % (url, res.text))		    
-		    
-		    
+        self._logger.info("Response from %s: %s" % (url, res.text))		    
+	    
 
     def get_update_information(self):
         return dict(
