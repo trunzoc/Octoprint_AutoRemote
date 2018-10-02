@@ -127,16 +127,14 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         autoremote_header = {'content-type': 'application/json'}
         autoremote_json = {
             'key': autoremotekey,
-            'message': message,
-            'password': '',
-            'ttl': 0,
-            'collapsekey': '',
-            'sender': autoremotesender,
-            'communication_base_params': {
-                 'sender': autoremotesender,
-                 'type': 'Message'
-                 }
-             }
+            'request': {
+                'message': message,
+                'sender': autoremotesender,
+                'communication_base_params': {
+                     'type': 'Message'
+                     }
+                }
+	}
 
 	self._logger.info("Sending %s to URL: %s" % (autoremote_json, url))
 
