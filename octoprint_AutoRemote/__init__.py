@@ -97,7 +97,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
  	
              if not payload:
                  payload = {}
-                 message = ",'nodata':'No_Data_For_This_Event'"
+                 message += ",'nodata':'No_Data_For_This_Event'"
              else:
                  for data in payload:
                      message += ",'%s':'%s'" % (str(data).lower(), str(payload[data]).replace("::ffff:", ""))
