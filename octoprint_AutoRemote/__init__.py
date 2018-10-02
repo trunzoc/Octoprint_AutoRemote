@@ -126,9 +126,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 	
 	url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
         autoremote_header = {'content-type': 'application/x-www-form-urlencoded'}
-        autoremote_json = {
-            'key': autoremotekey,
-            'request': {
+        messageObj = {
                 'message': message,
                 'sender': autoremotesender,
                 'communication_base_params': {
@@ -136,10 +134,14 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                      }
                 }
 	}
+        dataObj = {
+            'key': autoremotekey,
+            'request': json.dumps(messageObj)
+	}
+	
+	self._logger.info("Sending %s to URL: %s" % (dataObj, url))
 
-	self._logger.info("Sending %s to URL: %s" % (autoremote_json, url))
-
-	res = requests.post(url, data=json.dumps(autoremote_json))
+	res = requests.post(url, data=dataObj)
 		    
         self._logger.info("Response from %s: %s" % (url, res.text))
 		    
