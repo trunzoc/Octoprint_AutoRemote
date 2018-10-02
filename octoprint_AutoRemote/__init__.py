@@ -3,6 +3,7 @@ from __future__ import absolute_import
 
 import octoprint.plugin
 import requests
+import json
 from octoprint.events import Events
 
 import os
