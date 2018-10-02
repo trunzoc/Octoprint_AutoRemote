@@ -100,8 +100,8 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                  message = ",'nodata':'No_Data_For_This_Event'"
              else:
                  for data in payload:
-                     message += ",'%s':'%s'" % (str(data).lower(), str(payload[data]))
-                     self._logger.debug("forming_Message: '%s':'%s'" % (str(data).lower(), str(payload[data])))
+                     message += ",'%s':'%s'" % (str(data).lower(), str(payload[data]).replace("::ffff:", ""))
+                     self._logger.debug("forming_Message: '%s':'%s'" % (str(data).lower(), str(payload[data]).replace("::ffff:", "")))
  
              message += "}"
              self._logger.info("Calling Send: Event: %s, Message: %s" % (event, message))
