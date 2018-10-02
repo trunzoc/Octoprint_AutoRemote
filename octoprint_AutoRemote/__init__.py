@@ -100,8 +100,10 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                 message = ",'nodata':'No_Data_For_This_Event'"
             else:
                 for data in payload:
-                    message += ",'%s':'%s'" % (str(data).lower(), str(payload[data]))
-                    self._logger.debug("forming_Message: '%s':'%s'" % (str(data).lower(), str(payload[data])))
+                    payloadname = str(data).lower()
+                    payloadvalue = str(payload[data]).replace("::ffff:", "")
+                    message += ",'%s':'%s'" % (payloadname, payloadvalue)
+                    self._logger.debug("forming_Message: '%s':'%s'" % (payloadname, payloadvalue))
 
             message += "}"
             self._logger.info("Calling Send: Event: %s Message: %s" % (event, message))
@@ -116,15 +118,14 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         autoremotekey = self._settings.get(['autoremotekey'])
         autoremotesender = self._settings.get(['autoremotesender'])
 
-	#url = "https://autoremotejoaomgcd.appspot.com/sendmessage"
-        #url += "?key=" + autoremotekey
+	url = "https://autoremotejoaomgcd.appspot.com/sendmessage"
+
+	#url += "?key=" + autoremotekey
         #if autoremotesender:
         #    url += "&sender=" + autoremotesender
         #url += "&message=" + message
-        
 	#res = requests.post(url)
 	
-	url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
         autoremote_header = {'content-type': 'application/x-www-form-urlencoded'}
         messageObj = {
                 'message': message,
