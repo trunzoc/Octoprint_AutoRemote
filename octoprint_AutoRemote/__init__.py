@@ -104,7 +104,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                      self._logger.debug("forming_Message: '%s':'%s'" % (str(data).lower(), str(payload[data]).replace("::ffff:", "")))
  
              message += "}"
-             message = message.replace("::ffff:", "").replace(":'['", ":['").replace(":']'", ":']").replace(":'{  '", ":{'").replace(":'}'", ":'}")
+             message = message.replace("::ffff:", "").replace(":'['", ":['").replace("']'", "']").replace(":'{  '", ":{'").replace("'}'", ":}")
              self._logger.info("Calling Send: Event: %s, Message: %s" % (event, message))
              self._send_AutoRemote(message)
         else:
