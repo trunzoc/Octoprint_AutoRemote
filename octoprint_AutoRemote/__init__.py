@@ -106,7 +106,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
              message += "}"
              self._logger.info("Calling Send: Event: %s, Message: %s" % (event, message))
              self._send_AutoRemote(message)
-         else:
+	else:
              self._logger.info("Event skipped: %s" % event)
 
     def _send_AutoRemote(self, message=",'nodata':'No_Data_For_This_Event'"):
