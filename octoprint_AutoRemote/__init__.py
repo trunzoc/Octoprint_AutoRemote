@@ -130,7 +130,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                 'message': message,
                 'sender': autoremotesender,
                 'communication_base_params': {
-                     'sender': autoremotesender
+                     'sender': autoremotesender,
                      'type': 'Message'
                      }
                 }
