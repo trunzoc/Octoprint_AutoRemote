@@ -115,17 +115,17 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         autoremotekey = self._settings.get(['autoremotekey'])
         autoremotesender = self._settings.get(['autoremotesender'])
  	
-         url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
-         messageObj = {
+        url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
+        messageObj = {
                  'message': message,
                  'sender': autoremotesender,
                  'communication_base_params': {
                       'sender': autoremotesender,
                       'type': 'Message'
                       }
-                 }
+        }
  	
-         dataObj = {
+        dataObj = {
              'key': autoremotekey,
              'sender': autoremotesender,
              'request': json.dumps(messageObj)
