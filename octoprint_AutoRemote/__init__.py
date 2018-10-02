@@ -92,11 +92,11 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         events = self._settings.get(['events'], merged=True)
 
 	if event in events and events[event]:
-            message = "OctoAutoremote=:={Trigger:" + event
+            message = "OctoAutoremote=:={'Trigger':'" + event + "'"
 	
             if not payload:
                 payload = {}
-                message = ",NoData:No_Data_For_This_Event"
+                message = ",'NoData':'No_Data_For_This_Event'"
             else:
                 for data in payload:
                     message += ",'%s':'%s'" % (data, str(payload[data]))
@@ -109,7 +109,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         else:
             self._logger.info("Event skipped: %s" % event)
 
-    def _send_AutoRemote(self, message=",NoData:No_Data_For_This_Event"):
+    def _send_AutoRemote(self, message=",'NoData':'No_Data_For_This_Event'"):
         import requests
 	
         autoremotekey = self._settings.get(['autoremotekey'])
@@ -126,15 +126,15 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 	url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
         autoremote_header = {'content-type': 'application/json'}
         autoremote_json = {
-            "key": autoremotekey,
-            "message": message,
-            "password": '',
-            "ttl": 0,
-            "collapsekey": '',
-             "sender": autoremotesender,
-             "communication_base_params": {
-                 "sender": autoremotesender,
-                 "type": "Message"
+            'key': autoremotekey,
+            'message': message,
+            'password': '',
+            'ttl': 0,
+            'collapsekey': '',
+            'sender': autoremotesender,
+            'communication_base_params': {
+                 'sender': autoremotesender,
+                 'type': 'Message'
                  }
              }
 
