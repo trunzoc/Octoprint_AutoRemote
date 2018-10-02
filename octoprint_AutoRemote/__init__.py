@@ -93,23 +93,20 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         events = self._settings.get(['events'], merged=True)
 
 	if event in events and events[event]:
-            message = "OctoAutoremote=:={'event':'" + event + "'"
-	
-            if not payload:
-                payload = {}
-                message = ",'nodata':'No_Data_For_This_Event'"
-            else:
-                for data in payload:
-                    payloadname = str(data).lower()
-                    payloadvalue = str(payload[data]).replace("::ffff:", "")
-                    message += ",'%s':'%s'" % (payloadname, payloadvalue)
-                    self._logger.debug("forming_Message: '%s':'%s'" % (payloadname, payloadvalue))
-
-            message += "}"
-            self._logger.info("Calling Send: Event: %s ,Message: %s" % (event, message))
-            self._send_AutoRemote(message)
-            self._logger.info("Called Send: Event: %s ,Message: %s" % (event, message))
-        else:
+             message = "OctoAutoremote=:={'event':'" + event + "'"
+ 	
+             if not payload:
+                 payload = {}
+                 message = ",'nodata':'No_Data_For_This_Event'"
+             else:
+                 for data in payload:
+                     message += ",'%s':'%s'" % (str(data).lower(), str(payload[data]))
+                     self._logger.debug("forming_Message: '%s':'%s'" % (str(data).lower(), str(payload[data])))
+ 
+             message += "}"
+             self._logger.info("Calling Send: Event: %s, Message: %s" % (event, message))
+             self._send_AutoRemote(message)
+         else:
             self._logger.info("Event skipped: %s" % event)
 
     def _send_AutoRemote(self, message=",'nodata':'No_Data_For_This_Event'"):
@@ -117,30 +114,29 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 	
         autoremotekey = self._settings.get(['autoremotekey'])
         autoremotesender = self._settings.get(['autoremotesender'])
-
-	url = "https://autoremotejoaomgcd.appspot.com/sendmessage"
-	
-        messageObj = {
-                'message': message,
-                'sender': autoremotesender,
-                'communication_base_params': {
-                     'sender': autoremotesender,
-                     'type': 'Message'
-                     }
-                }
-	
-        dataObj = {
-            'key': autoremotekey,
-            'sender': autoremotesender,
-            'request': json.dumps(messageObj)
-	}
-	
-	self._logger.info("Sending %s to URL: %s" % (dataObj, url))
-
-	res = requests.post(url, data=dataObj)
-		    
-        self._logger.info("Response from %s: %s" % (url, res.text))
-		    
+ 	
+ 	url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
+         autoremote_header = {'content-type': 'application/x-www-form-urlencoded'}
+         messageObj = {
+                 'message': message,
+                 'sender': autoremotesender,
+                 'communication_base_params': {
+                      'sender': autoremotesender
+                      'type': 'Message'
+                      }
+                 }
+ 	
+         dataObj = {
+             'key': autoremotekey,
+             'sender': autoremotesender,
+             'request': json.dumps(messageObj)
+ 	}
+ 	
+ 	self._logger.info("Sending %s to URL: %s" % (dataObj, url))
+ 
+ 	res = requests.post(url, data=dataObj)
+ 		    
+         self._logger.info("Response from %s: %s" % (url, res.text))		    
 		    
 		    
 
