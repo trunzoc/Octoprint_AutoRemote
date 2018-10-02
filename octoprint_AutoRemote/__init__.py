@@ -115,8 +115,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         autoremotekey = self._settings.get(['autoremotekey'])
         autoremotesender = self._settings.get(['autoremotesender'])
  	
- 	url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
-         autoremote_header = {'content-type': 'application/x-www-form-urlencoded'}
+         url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
          messageObj = {
                  'message': message,
                  'sender': autoremotesender,
