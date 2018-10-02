@@ -92,7 +92,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         events = self._settings.get(['events'], merged=True)
 
 	if event in events and events[event]:
-            message = "OctoAutoremote=:={'Trigger':'" + event + "'"
+            message = "OctoAutoremote=:='Trigger':'" + event + "'"
 	
             if not payload:
                 payload = {}
@@ -102,7 +102,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                     message += ",'%s':'%s'" % (data, str(payload[data]))
                     self._logger.debug("forming_Message: '%s':'%s'" % (data, str(payload[data])))
 
-            message += "}"
+            #message += "}"
             self._logger.info("Calling Send: Event: %s Message: %s" % (event, message))
             self._send_AutoRemote(message)
             self._logger.info("Called Send: Event: %s Message: %s" % (event, message))
@@ -138,7 +138,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 
 	self._logger.info("Sending %s to URL: %s" % (autoremote_json, url))
 
-	res = requests.post(url, data=autoremote_json, headers=autoremote_header)
+	res = requests.post(url, data=json.dumps(autoremote_json))
 		    
         self._logger.info("Response from %s: %s" % (url, res.text))
 		    
