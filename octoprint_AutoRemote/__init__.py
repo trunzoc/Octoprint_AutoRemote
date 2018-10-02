@@ -113,17 +113,41 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
 	
         autoremotekey = self._settings.get(['autoremotekey'])
         autoremotesender = self._settings.get(['autoremotesender'])
+
+	#url = "https://autoremotejoaomgcd.appspot.com/sendmessage"
+        #url += "?key=" + autoremotekey
+        #if autoremotesender:
+        #    url += "&sender=" + autoremotesender
+        #url += "&message=OctoAutoremote=:=" + trigger + message
+        
+	#res = requests.post(url)
 	
-        url = "https://autoremotejoaomgcd.appspot.com/sendmessage"
-        url += "?key=" + autoremotekey
         if autoremotesender:
-            url += "&sender=" + autoremotesender
-        url += "&message=OctoAutoremote=:=" + trigger + message
-        
-	res = requests.post(url)
-        self._logger.info("URL: %s" % url)
-        self._logger.info("Trigger: %s Response: %s" % (trigger, res.text))
-        
+            autoremotesender = ""
+	
+	url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
+        autoremote_header = {'content-type': 'application/json'}
+        autoremote_json = {
+            "message": message,
+            "password": '',
+            "ttl": 0,
+            "collapsekey": '',
+            "key": autoremotekey,
+             "sender": autoremotesender,
+             "communication_base_params": {
+                 "sender": autoremotesender,
+                 "type": "Message"
+                 }
+             }
+
+	self._logger.info("Sending %s to URL: %s" % (autoremote_json, url))
+
+	res = requests.post(url, json=autoremote_json, headers=autoremote_header)
+		    
+        self._logger.info("Response from %s: %s" % (url, res.text))
+		    
+		    
+		    
 
     def get_update_information(self):
         return dict(
