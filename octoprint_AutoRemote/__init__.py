@@ -122,9 +122,6 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         
 	#res = requests.post(url)
 	
-        if not autoremotesender:
-            autoremotesender = "''"
-	
 	url = "https://autoremotejoaomgcd.appspot.com/sendrequest"
         autoremote_header = {'content-type': 'application/json'}
         autoremote_json = {
