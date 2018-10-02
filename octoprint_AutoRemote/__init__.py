@@ -133,7 +133,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
                      'type': 'Message'
                      }
                 }
-	}
+	
         dataObj = {
             'key': autoremotekey,
             'request': json.dumps(messageObj)
