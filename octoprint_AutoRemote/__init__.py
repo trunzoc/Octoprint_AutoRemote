@@ -93,18 +93,19 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
         events = self._settings.get(['events'], merged=True)
 
         if event in events and events[event]:
-             message = "OctoAutoremote=:={'event':'" + event + "'"
- 	
+             messagedata = {}
+             messagedata['event'] = event
+              	
              if not payload:
                  payload = {}
-                 message += ",'nodata':'No_Data_For_This_Event'"
+                 messagedata['nodata'] = 'No_Data_For_This_Event'
              else:
                  for data in payload:
-                     message += ",'%s':'%s'" % (str(data).lower(), str(payload[data]))
+                     messagedata[str(data).lower()] = str(payload[data]).replace("::ffff:", "")
                      self._logger.debug("forming_Message: '%s':'%s'" % (str(data).lower(), str(payload[data]).replace("::ffff:", "")))
  
-             message += "}"
-             message = message.replace("::ffff:", "").replace(":'['", ":['").replace("']'", "']").replace(":'{  '", ":{'").replace("'}'", ":}")
+             message = 'OctoAutoremote=:=' + json.dumps(messagedata)
+
              self._logger.info("Calling Send: Event: %s, Message: %s" % (event, message))
              self._send_AutoRemote(message)
         else:
