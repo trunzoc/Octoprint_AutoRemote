@@ -35,5 +35,7 @@ via this URL:
 
 ## TASKER
 
-[Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm) is a complicated beast.  I'll leave that to you to configure.
+[Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm) is a complicated beast.  I'll leave that to you to configure.  [HERE](https://drive.google.com/open?id=1fZJ9Z8nqrLl7EWTMjE5uMRb0FRJcJwRg) is a proflie to start you off.
+
+In addition to [AutoRemote](https://play.google.com/store/apps/details?id=com.joaomgcd.autoremote), [AutoTools](https://play.google.com/store/apps/details?id=com.joaomgcd.autotools) is also very useful for it's ability to read JSON into a Tasker variable.
 
