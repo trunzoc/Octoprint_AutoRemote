@@ -131,7 +131,7 @@ class OctoAutoremotePlugin(octoprint.plugin.StartupPlugin,
              'key': autoremotekey,
              'sender': autoremotesender,
              'request': json.dumps(messageObj)
- 	}
+        }
  	
  	self._logger.info("Sending %s to URL: %s" % (dataObj, url))
  
