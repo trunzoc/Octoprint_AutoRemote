@@ -8,6 +8,7 @@ from octoprint.events import Events
 
 import os
 
+#version 1.5.1
 #TODO LIST
 #Add progress for % or Layer and textbox for value
 #Add URL field for each trigger to make it a general webhook plugin instead of just AutoRemote
